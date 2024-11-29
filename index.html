@@ -1,20 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Présentation Louis</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href="styles/convolution.css"/>
+    <title>Présentation Kitware</title>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
+
+        <!-- Introduction -->
         <section>
-            <h1>Reveal.js + Vite</h1>
-            First slide!
+            <h1>Stable Diffusion</h1>
+            Louis Pagnier
         </section>
-        <section>Second!</section>
+
+        <!-- DDPM -->
+        <section>
+            <section data-auto-animate>
+                <h1>DDPM</h1>
+                <p>Denoising Diffusion Probabilistic Models</p>
+            </section>
+
+            <section data-auto-animate>
+                <h1>DDPM</h1>
+                <p>Denoising Diffusion Probabilistic Models</p>
+                <img src="/assets/images/ddpm-diffusion-process.png"/>
+            </section>
+        </section>
+
+        <!-- Forward propagation -->
+        <section>
+            <section data-auto-animate>
+                <h2>Bruitage</h2>
+                <img data-id="img" src="/assets/images/forward.png"/>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Bruitage</h2>
+                <img data-id="fwd" src="/assets/images/forward.png"/>
+                <p>$$ q(x_t|x_{t-1}) = \mathcal{N}(x_t, \sqrt{1-\beta_t}x_{t-1}, \beta_tI) $$</p>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Bruitage</h2>
+                <img data-id="fwd" src="/assets/images/forward-color.png"/>
+                <p>$$ \textcolor{red}{q(\textcolor{cyan}{x_t}|\textcolor{lime}{x_{t-1}})} = \mathcal{N}(\textcolor{cyan}{x_t}, \sqrt{1-\beta_t}\textcolor{lime}{x_{t-1}}, \beta_tI) $$</p>
+            </section>
+        </section>
+
+        <!-- Backward propagation -->
+        <section>
+            <section data-auto-animate>
+                <h2>Débruitage</h2>
+                <img data-id="bwd" src="/assets/images/backward.png"/>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Débruitage</h2>
+                <img data-id="bwd" src="/assets/images/backward.png"/>
+                <img style="width: 30%; transform: translate(-27%, -40%)" data-id="img-unet" src="/assets/images/u-net.png"/>
+                <p style="transform: translate(-8%, -200%)">U-Net</p>
+            </section>
+        </section>
+
+        <!-- What is a CNN -->
+        <section>
+            <section data-auto-animate>
+                <div class="inline">
+                    <img style="width: 20vw" data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
+                    <div class="cnn-wrapper">
+                        <img class="pixel-img" id="kw" data-id="kw" src="/assets/images/kitware-lowres.png"/>
+                        <img class="filter" id="filter" data-id="filter" src="/assets/images/filter.png"/>
+                    </div>
+                    <canvas style="width: 20vw; height: 20vw" class="cnn-canvas" id="cnn-canvas"></canvas>
+                </div>
+
+                <button onclick="startFilter()">Start</button>
+                <div class="cnn-speed-wrapper">
+                    <input class="slider" type="range" min="5" max="10" step="0.5" value="1" id="cnn-speed">
+                </div>
+            </section>
+        </section>
+
     </div>
 </div>
-<script type="module" src="/main.js"></script>
+<script type="module" src="/scripts/main.js"></script>
+<script type="application/javascript" src="/scripts/utils.js"></script>
+<script type="application/javascript" src="/scripts/convolution.js"></script>
 </body>
 </html>
