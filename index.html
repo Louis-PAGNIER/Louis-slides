@@ -70,23 +70,25 @@
         <section>
             <section data-auto-animate>
                 <h2>Fonctionnement d'un CNN</h2>
-                <img style="width: 20vw" data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
+                <img data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
             </section>
 
             <section data-auto-animate>
                 <h2>Fonctionnement d'un CNN</h2>
-                <div class="inline">
-                    <img style="width: 20vw" data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
-                    <div class="cnn-wrapper">
-                        <img class="pixel-img" id="kw" data-id="kw" src="/assets/images/kitware-lowres.png"/>
-                        <img class="filter" id="filter" data-id="filter" src="/assets/images/filter.png"/>
+                <div class="animation-container">
+                    <div class="inline">
+                        <img class="filter-sample" data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
+                        <div class="cnn-wrapper">
+                            <img class="pixel-img" id="kw" data-id="kw" src="/assets/images/kitware-lowres.png"/>
+                            <img class="filter" id="filter" data-id="filter" src="/assets/images/filter.png"/>
+                        </div>
+                        <canvas class="cnn-canvas" id="cnn-canvas"></canvas>
                     </div>
-                    <canvas style="width: 20vw; height: 20vw" class="cnn-canvas" id="cnn-canvas"></canvas>
-                </div>
 
-                <div><button onclick="startFilter()">Start</button></div>
-                <div class="cnn-speed-wrapper">
-                    <input class="slider" type="range" min="5" max="10" step="0.5" value="1" id="cnn-speed">
+                    <div><button onclick="startFilter()">Start</button></div>
+                    <div class="cnn-speed-wrapper">
+                        <input class="slider" type="range" min="5" max="10" step="0.5" value="1" id="cnn-speed">
+                    </div>
                 </div>
             </section>
 
@@ -184,7 +186,20 @@
 
             <section data-auto-animate>
                 <h2 data-id="title">Mon VAE</h2>
-                <img style="width: 40%" src="/assets/images/other-clothes.png"/>
+                <img style="height: 35vh; width: auto" src="/assets/images/other-clothes.png"/>
+            </section>
+        </section>
+        
+        <section>
+            <section data-auto-animate>
+                <h2>À quoi ça sert ?</h2>
+                <img data-id="img-1" src="/assets/images/spatial-noise.png"/>
+            </section>
+
+            <section data-auto-animate>
+                <h2>À quoi ça sert ?</h2>
+                <img data-id="img-1" src="/assets/images/spatial-noise.png"/>
+                <img src="/assets/images/latent-noise.png"/>
             </section>
         </section>
 

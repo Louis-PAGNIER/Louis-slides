@@ -40,8 +40,8 @@ function startFilter() {
 function moveFilter(filter, canvas, x, y) {
     showCanvasPixel(canvas, x, y)
 
-    filter.style.top = (y - 1) + 'vw'
-    filter.style.left = (x - 1) + 'vw'
+    filter.style.top = (y - 1) * 4.17 + '%'
+    filter.style.left = (x - 1) * 4.17 + '%'
 
     const nextX = (x + 1) % (CNN_IMAGE_WIDTH - CNN_CONV + 1)
     const nextY = y + (nextX === 0)

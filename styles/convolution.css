@@ -11,21 +11,33 @@
 
 .filter {
     position: absolute;
-    width: 7vw;
-    height: 7vw;
-    top: -1vw;
-    left: -1vw;
+    width: 29%;
+    aspect-ratio: 1 / 1;
+    top: -4.17%;
+    left: -4.17%;
 }
 
 .cnn-wrapper {
     position: relative;
     padding: 0;
     margin: 25px auto 25px auto;
-    width: 24vw;
-    height: 24vw;
-    background: black;
+    width: 24%;
+    aspect-ratio: 1 / 1;
+    max-height: 168px;
 }
 
 .cnn-canvas {
     background: #191919;
+    width: 20%;
+    aspect-ratio: 1/1;
+}
+
+.filter-sample {
+    width: 20%;
+}
+
+.animation-container {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
 }
