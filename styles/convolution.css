@@ -26,11 +26,6 @@
     background: black;
 }
 
-.inline {
-    display: flex;
-    align-items: center;
-}
-
 .cnn-canvas {
     background: #191919;
 }

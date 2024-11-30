@@ -69,6 +69,12 @@
         <!-- What is a CNN -->
         <section>
             <section data-auto-animate>
+                <h2>Fonctionnement d'un CNN</h2>
+                <img style="width: 20vw" data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Fonctionnement d'un CNN</h2>
                 <div class="inline">
                     <img style="width: 20vw" data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
                     <div class="cnn-wrapper">
@@ -78,10 +84,107 @@
                     <canvas style="width: 20vw; height: 20vw" class="cnn-canvas" id="cnn-canvas"></canvas>
                 </div>
 
-                <button onclick="startFilter()">Start</button>
+                <div><button onclick="startFilter()">Start</button></div>
                 <div class="cnn-speed-wrapper">
                     <input class="slider" type="range" min="5" max="10" step="0.5" value="1" id="cnn-speed">
                 </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Schéma d'un CNN</h2>
+                <img data-id="cnn" src="/assets/images/cnn-details.png"/>
+            </section>
+        </section>
+
+        <!-- U-Net -->
+        <section>
+            <section data-auto-animate>
+                <h2>U-Net</h2>
+                <img data-id="img" src="/assets/images/unet-example.png"/>
+            </section>
+        </section>
+
+        <!-- Résultats DDPM -->
+        <section>
+            <section data-auto-animate>
+                <h2>Résultats DDPM classique</h2>
+                <h6>(MNIST)</h6>
+                <img data-id="img" src="/assets/images/mnist.webp"/>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Résultats DDPM classique</h2>
+                <h6>(MNIST)</h6>
+                <div class="inline" style="width: 100%; gap: 50px">
+                    <img style="max-width: 40%" data-id="img" src="/assets/images/mnist.webp"/>
+                    <img style="max-width: 40%" data-id="img2" src="/assets/images/mnist_ddpm.png"/>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Résultats DDPM classique</h2>
+                <h6>(CIFAR 10)</h6>
+                <video data-autoplay src="assets/videos/chevaux.mp4"></video>
+                <video data-autoplay src="assets/videos/bateau.mp4"></video>
+            </section>
+        </section>
+
+        <!-- VAE -->
+        <section>
+            <section data-auto-animate>
+                <h2>(Variational) Auto Encoder</h2>
+                <div class="r-stack">
+                    <img class="fragment fade-out" data-fragment-index="0" src="/assets/images/ae-rgb.png"/>
+                    <img class="fragment" data-fragment-index="0" src="/assets/images/ae-cat.png"/>
+                    <img class="fragment" src="/assets/images/ae-mnist.png"/>
+                </div>
+                <p class="fragment">$$ L = MSE(\hat{\theta}) = \frac{1}{n}\sum_{x,y=1,1}^{n^2} (\theta_{xy} - \hat{\theta_{xy}})^2$$</p>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Espace latent</h2>
+                <div style="width: 50%; margin: auto" class="column">
+                    <img data-id="img" src="/assets/images/ae-space.png"/>
+                    <span>Auto Encodeur</span>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Espace latent</h2>
+                <div class="inline">
+                    <div class="column">
+                        <img data-id="img" src="/assets/images/ae-space.png"/>
+                        <span data-id="ae">AE</span>
+                    </div>
+                    <div class="column">
+                        <img data-id="img2" src="/assets/images/vae-space-1.png"/>
+                        <span data-id="vae">VAE</span>
+                    </div>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Espace latent</h2>
+                <div class="inline">
+                    <div class="column">
+                        <img data-id="img" src="/assets/images/ae-space.png"/>
+                        <span data-id="ae">AE</span>
+                    </div>
+                    <div class="column">
+                        <img data-id="img2" src="/assets/images/vae-space-2.png"/>
+                        <span data-id="vae">VAE</span>
+                    </div>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2 data-id="title">Mon VAE</h2>
+                <img src="/assets/images/vae-tshirt.png"/>
+            </section>
+
+            <section data-auto-animate>
+                <h2 data-id="title">Mon VAE</h2>
+                <img style="width: 40%" src="/assets/images/other-clothes.png"/>
             </section>
         </section>
 
