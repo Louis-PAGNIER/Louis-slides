@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/main.css"/>
     <link rel="stylesheet" href="styles/convolution.css"/>
     <link rel="stylesheet" href="styles/results.css"/>
+    <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css" />
     <title>Présentation Kitware</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
             <section data-auto-animate>
                 <h1>DDPM</h1>
                 <p>Denoising Diffusion Probabilistic Models</p>
-                <img src="/assets/images/ddpm-diffusion-process.png"/>
+                <img src="/assets/images/ddpm.png"/>
             </section>
         </section>
 
@@ -36,19 +37,13 @@
         <section>
             <section data-auto-animate>
                 <h2>Bruitage</h2>
-                <img data-id="img" src="/assets/images/forward.png"/>
+                <img data-id="noising" src="/assets/images/noising.png"/>
             </section>
 
             <section data-auto-animate>
                 <h2>Bruitage</h2>
-                <img data-id="fwd" src="/assets/images/forward.png"/>
-                <p>$$ q(x_t|x_{t-1}) = \mathcal{N}(x_t, \sqrt{1-\beta_t}x_{t-1}, \beta_tI) $$</p>
-            </section>
-
-            <section data-auto-animate>
-                <h2>Bruitage</h2>
-                <img data-id="fwd" src="/assets/images/forward-color.png"/>
-                <p>$$ \textcolor{red}{q(\textcolor{cyan}{x_t}|\textcolor{lime}{x_{t-1}})} = \mathcal{N}(\textcolor{cyan}{x_t}, \sqrt{1-\beta_t}\textcolor{lime}{x_{t-1}}, \beta_tI) $$</p>
+                <img data-id="noising" src="/assets/images/noising.png"/>
+                <p>$$ q(x_t|x_{t-1}) = \mathcal{N}(\sqrt{1-\beta_t}x_{t-1}, \beta_tI) $$</p>
             </section>
         </section>
 
@@ -56,14 +51,14 @@
         <section>
             <section data-auto-animate>
                 <h2>Débruitage</h2>
-                <img data-id="bwd" src="/assets/images/backward.png"/>
+                <img data-id="noising" src="/assets/images/denoising.png"/>
             </section>
 
             <section data-auto-animate>
                 <h2>Débruitage</h2>
-                <img data-id="bwd" src="/assets/images/backward.png"/>
-                <img style="width: 30%; transform: translate(-27%, -40%)" data-id="img-unet" src="/assets/images/u-net.png"/>
-                <p style="transform: translate(-8%, -200%)">U-Net</p>
+                <img data-id="noising" src="/assets/images/denoising.png"/>
+                <img style="width: 30%; transform: translate(-10%, -70%)" data-id="img-unet" src="/assets/images/u-net.png"/>
+                <p style="transform: translate(-3%, -300%)">U-Net</p>
             </section>
         </section>
 
@@ -71,7 +66,7 @@
         <section>
             <section data-auto-animate>
                 <h2>Fonctionnement d'un CNN</h2>
-                <img data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
+                <img style="width: 50%" data-id="zoomed-filter" src="/assets/images/zoomed-filter.png"/>
             </section>
 
             <section data-auto-animate>
@@ -88,7 +83,7 @@
 
                     <div><button onclick="startFilter()">Start</button></div>
                     <div class="cnn-speed-wrapper">
-                        <input class="slider" type="range" min="5" max="10" step="0.5" value="1" id="cnn-speed">
+                        <input class="slider" type="range" min="8" max="10" step="0.5" value="8" id="cnn-speed">
                     </div>
                 </div>
             </section>
@@ -96,6 +91,7 @@
             <section data-auto-animate>
                 <h2>Schéma d'un CNN</h2>
                 <img data-id="cnn" src="/assets/images/cnn-details.png"/>
+                <span class="source">Source: https://www.researchgate.net/publication/373832377</span>
             </section>
         </section>
 
@@ -103,29 +99,14 @@
         <section>
             <section data-auto-animate>
                 <h2>U-Net</h2>
-                <img data-id="img" src="/assets/images/unet-example.png"/>
+                <img src="/assets/images/u-net-example.png"/>
             </section>
         </section>
 
         <!-- Résultats DDPM -->
         <section>
             <section data-auto-animate>
-                <h2>Résultats DDPM classique</h2>
-                <h6>(MNIST)</h6>
-                <img data-id="img" src="/assets/images/mnist.webp"/>
-            </section>
-
-            <section data-auto-animate>
-                <h2>Résultats DDPM classique</h2>
-                <h6>(MNIST)</h6>
-                <div class="inline" style="width: 100%; gap: 50px">
-                    <img style="max-width: 40%" data-id="img" src="/assets/images/mnist.webp"/>
-                    <img style="max-width: 40%" data-id="img2" src="/assets/images/mnist_ddpm.png"/>
-                </div>
-            </section>
-
-            <section data-auto-animate>
-                <h2>Résultats DDPM classique</h2>
+                <h2>Résultats DDPM</h2>
                 <h6>(CIFAR 10)</h6>
                 <video data-autoplay src="assets/videos/chevaux.mp4"></video>
                 <video data-autoplay src="assets/videos/bateau.mp4"></video>
@@ -135,7 +116,7 @@
         <!-- VAE -->
         <section>
             <section data-auto-animate>
-                <h2>(Variational) Auto Encoder</h2>
+                <h2>Auto Encoder</h2>
                 <div class="r-stack">
                     <img class="fragment fade-out" data-fragment-index="0" src="/assets/images/ae-rgb.png"/>
                     <img class="fragment" data-fragment-index="0" src="/assets/images/ae-cat.png"/>
@@ -181,6 +162,28 @@
             </section>
 
             <section data-auto-animate>
+                <h2>Variational Auto Encoder</h2>
+                <img style="width: 60%;" src="/assets/images/ae-mnist.png"/>
+                <p class="fragment">$$ L = MSE(\hat{\theta}) + \beta \cdot KL$$</p>
+                <p class="fragment">$$ KL = \frac{1}{2}\sum_{i=1}^{d}(\sigma_i^2 + \mu_i^2 - \log \sigma_i^2 - 1) $$</p>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Visualisation de l'espace latent</h2>
+                <div class="inline">
+                    <img style="width: 33%; margin: auto" src="/assets/images/ae-plot.png"/>
+                    <img data-id="vae-latent" style="width: 33%; margin: auto" src="/assets/images/vae-plot.png"/>
+                </div>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Visualisation de l'espace latent</h2>
+                <div class="inline">
+                    <img data-id="vae-latent" style="width: 45%; margin: auto" src="/assets/images/vae-plot.png"/>
+                </div>
+            </section>
+
+            <section data-auto-animate>
                 <h2 data-id="title">Résultats</h2>
                 <img src="/assets/images/vae-tshirt.png"/>
             </section>
@@ -207,7 +210,19 @@
         <section>
             <section data-auto-animate>
                 <h2>Le prompt</h2>
-                <img src="/assets/images/text-embedding.png"/>
+                <img src="/assets/images/embedding.png"/>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Le prompt</h2>
+                <img src="/assets/images/vectors.png"/>
+            </section>
+        </section>
+
+        <section>
+            <section data-auto-animate>
+                <h2>Récapitulatif</h2>
+                <img style="height: 40vh; width: auto" src="/assets/images/stable-diffusion.png"/>
             </section>
         </section>
 
@@ -234,10 +249,13 @@
         <section>
             <section data-auto-animate>
                 <h2>Mon parcours</h2>
+                <img src="/assets/images/courses.png"/>
             </section>
 
             <section data-auto-animate>
                 <h2>Mes passions</h2>
+                <!-- Source: https://codepen.io/h20x/pen/YQYrOa -->
+                <iframe width="600px" height="800px" src="assets/misc/rubiks.html" allowtransparency="true" style="border: none; scale: 0.5"></iframe>
             </section>
         </section>
 

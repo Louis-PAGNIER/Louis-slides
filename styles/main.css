@@ -27,6 +27,15 @@ input[type=range] {
     border-radius: 5px;
 }
 
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 16px;
+    width: 16px;
+    border-radius: 16px;
+    background: white;
+}
+
 .inline {
     display: flex;
     justify-content: center;
@@ -39,4 +48,12 @@ input[type=range] {
     flex-direction: column;
     justify-content: center;
     margin: auto;
+}
+
+.source {
+    margin-left: 25px;
+    display: flex;
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
 }
